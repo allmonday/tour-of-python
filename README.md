@@ -1,6 +1,11 @@
 pythonDigg
 ==========
 
+some code when learning python.
 some codes I don't want to throw away.. so keep it..
 
-#学习笔记
+---
+
+* QQ: 372334802
+* Email: allmonday@126.com
+
