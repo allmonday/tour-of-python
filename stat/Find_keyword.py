@@ -1,10 +1,16 @@
+#coding=utf-8
+
+'''
+    use if-idf algorithm to find key words in articles
+    also can be used in short sentence however the proformance is not so good.
+'''
 import sys
 import jieba
 from collections import Counter
-jieba.user_dict = "user_dict.txt"
+jieba.user_dict = "./dictionary/user_dict.txt"
 stop_words = set(['。', '，', ',', '.','“','”','、','\n',' ','　','（',
 '）','【','】', '...', '>', '<', '!', '！']) 
-idf_content = open('idf.txt','rb').read().decode('utf-8').split('\n')
+idf_content = open('./dictionary/idf.txt','rb').read().decode('utf-8').split('\n')
 idf_freq = {}
 for line in idf_content:
     word, freq = line.split(' ')
@@ -39,7 +45,7 @@ class CompareMan(object):
         return self._calc_weight()[:10]
 
 if __name__ == "__main__":
-    for line in open('amazon_reviews.txt','r').readlines():
+    for line in open('./data/amazon_reviews.txt','r').readlines():
         print(line)
         c = CompareMan('-t', line)
         print(c())
